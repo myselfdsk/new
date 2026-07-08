@@ -2,6 +2,7 @@ import sys, os, hashlib, json, base64
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 import urllib3
 from flask import Flask, request, Response
+from flask_cors import CORS
 from Crypto.Cipher import AES
 from google.protobuf import json_format
 from cachetools import TTLCache
@@ -12,6 +13,15 @@ import requests , time
 
 urllib3.disable_warnings()
 app = Flask(__name__)
+
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://hawkeye-esports.vercel.app/",
+            "http://localhost:3000"
+        ]
+    }
+})
 
 cK = hashlib.md5(b"Unknown_Reason").hexdigest()
 
