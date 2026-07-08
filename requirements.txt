@@ -1,0 +1,9 @@
+flask
+requests
+urllib3
+pycryptodome
+protobuf==5.29.5
+cachetools
+cryptography
+gunicorn
+google
