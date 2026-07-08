@@ -7,3 +7,4 @@ cachetools
 cryptography
 gunicorn
 google
+Flask-Cors
