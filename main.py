@@ -18,6 +18,7 @@ CORS(app, resources={
     r"/*": {
         "origins": [
             "https://hawkeye-esports.vercel.app/",
+            "https://hawkeyeofficial.in",
             "http://localhost:3000"
         ]
     }
