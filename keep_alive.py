@@ -1,6 +1,6 @@
 import requests
 
-URL = "https://new-ugt0.onrender.com/"
+URL = "https://new-ugt0.onrender.com/info?uid=70393167"
 
 try:
     response = requests.get(URL, timeout=30)
