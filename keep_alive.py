@@ -1,23 +1,21 @@
-import time
 import requests
-from datetime import datetime
 
 URL = "https://new-ugt0.onrender.com/"
 
-while True:
-    try:
-        response = requests.get(URL, timeout=30)
+try:
+    response = requests.get(URL, timeout=30)
 
-        print(
-            f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] "
-            f"Status: {response.status_code}"
-        )
+    print("=" * 50)
+    print("Render Keep Alive")
+    print("=" * 50)
+    print(f"URL         : {URL}")
+    print(f"Status Code : {response.status_code}")
+    print(f"Response    : {response.text[:200]}")
+    print("=" * 50)
 
-    except Exception as e:
-        print(
-            f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] "
-            f"Error: {e}"
-        )
-
-    # Wait for 10 minutes
-    time.sleep(600)
+except requests.exceptions.RequestException as e:
+    print("=" * 50)
+    print("Failed to reach Render")
+    print(f"Error: {e}")
+    print("=" * 50)
+    raise
