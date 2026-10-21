@@ -64,7 +64,17 @@ REGION_PRIORITY = ["IND"]
 
 # === Flask App ===
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://hawkeye-esports.vercel.app/",
+            "https://hawkeyeofficial.in",
+            "https://guildmanager.hawkeyeofficial.in",
+            "https://www.hawkeyeofficial.in",
+            "http://localhost:3000"
+        ]
+    }
+})
 
 # =============================================
 # In-Memory Token Cache (per container)
